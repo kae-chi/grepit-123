@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# for the given input (string) there are four places we can find the string between directories and files.
+
+#standard input
+#standard errors
+#file lines
+#file names
+
+# if anyone launches but didn't want to
+read quit
+
+
+# ask for an input
+
+echo What am I looking for?
+
+read desiredString
+
+
+#ask which directories can be looked through
+#note to self: I am worried about the user directory restrictions. may have to google very hard about how to bypass that stuff.
+# for current testing, I can just use a git library. May also need to ask more about the puzzle function, seems like there's some prewritten stuff in there. 
+
+echo Where to look?
+
+read desiredDirectory
+
+specInstances = false
+
+
+while [specInstances != true]; do
+
+
+	echo Are there specific instances you're looking for? (answer with y/n)
+
+	read instanceYN
+	
+	if ["$instanceYN" == "y"];
+then
+		echo Which instance would you like?
+
+	elif ["$instanceYN" == "n"];
+	     then
+	     echo Okay then. Will grep everything starting from $desiredDirectory.
+
+	else;
+		echo Invalid input try again.
+	fi 	
+
+	
+echo Just to confirm, I am looking for all instances of $desiredString in $desiredDirectories 
